@@ -28,11 +28,16 @@
 .search-bar {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
+  flex: 1;
 }
 
 .search-bar input {
-  width: 250px;
+  width: 100%;
+  max-width: 400px;
+  min-width: 200px;
+  flex: 1;
   padding: 8px 12px;
   border-radius: 20px;
   border: 1px solid #ccc;
@@ -40,7 +45,7 @@
 }
 
 .search-btn {
-  padding: 8px 12px;
+  padding: 8px 10px;
   border: none;
   border-radius: 50%;
   background-color: green;
