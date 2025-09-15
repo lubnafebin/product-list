@@ -4,10 +4,12 @@ export const CategoryBar = () => {
     <div className="category">
       <ul>
         <li>All Vegetables</li>
-        <li>Vegetables</li>
-        <li>Fruits</li>
+        <li>Leafy Greens</li>
+        <li>Root Vegetables</li>
+        <li>Fruits & Berries</li>
+        <li>Herbs & Spices</li>
         <li>Organic</li>
-        <li>Offers</li>
+        <li>Seasonal</li>
       </ul>
     </div>
   );

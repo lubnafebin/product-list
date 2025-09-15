@@ -1,5 +1,5 @@
 .category{
-    padding: 10px 20px;
+    padding: 20px 20px;
 }
 
 .category ul{
@@ -17,3 +17,8 @@
     padding: 8px 12px;
     transition: color 0.2s, border-bottom 0.2;
 }
+
+.category li:hover{
+    color: green;
+    border-bottom: 2px solid green;
+} 
