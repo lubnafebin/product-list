@@ -1,0 +1,19 @@
+.category{
+    padding: 10px 20px;
+}
+
+.category ul{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.category li{
+    cursor: pointer;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: color 0.2s, border-bottom 0.2;
+}
