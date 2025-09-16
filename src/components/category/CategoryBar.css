@@ -1,5 +1,6 @@
 .category{
     padding: 20px 20px;
+    scroll-snap-type: x mandatory;
 }
 
 .category ul{
@@ -15,6 +16,9 @@
     cursor: pointer;
     font-weight: 500;
     padding: 8px 12px;
+    scroll-snap-align: start;
+    white-space: nowrap;   
+    flex-shrink: 0;
     transition: color 0.2s, border-bottom 0.2;
 }
 
@@ -22,3 +26,35 @@
     color: green;
     border-bottom: 2px solid green;
 } 
+
+@media (max-width:768px) {
+    .category{
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    .category ul{
+        justify-content: flex-start;
+    }
+    .category li{
+        font-weight: 300;
+        font-size: 14px;
+        gap: 10px;
+    }
+}
+
+@media (max-width:480px) {
+    .category{
+        padding: 6px 10px;
+        justify-content: flex-start;
+    }
+
+    .category ul{
+        gap: 5px;
+        justify-content: flex-start;
+    }
+
+    .category li{
+        font-weight: 200;
+        font-size: 13px;
+    }
+}
