@@ -1,16 +1,21 @@
 .banner{
-    position: relative;
     width: 100%;
-    max-width: 1200px;
-    margin: 10px auto;
-    border-radius: 10px;
-    overflow: hidden;
+}
+
+.banner-inner{
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 0 16px;        
+  overflow: hidden;      
+  position: relative;
 }
 
 .banner-img{
     width: 100%;
     height: 400px;
     object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
     display: block;
 }
 
@@ -20,7 +25,7 @@
     left: 10%;
     transform: translateY(-50%);
     color: white;
-    max-width: 400px;
+    max-width: 700px;
 }
 
 .banner-content h2 {
@@ -47,4 +52,26 @@
 
 .shop-btn:hover {
   background: darkgreen;
+}
+
+@media (max-width:992px){
+  .banner-img { height: 300px; }
+  .banner-inner { padding: 0 14px; }
+}
+
+@media (max-width:600px) {
+  .banner-img { height: 200px; }
+  .banner-inner { padding: 0 12px; }
+  .banner-content {
+    left: 50%;
+    transform: translate(-70%, -50%);
+  }
+  .banner-content h2 { font-size: 1.2rem; }
+  .banner-content p {
+    font-size: 0.9rem;
+  }
+  .banner-content button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  } 
 }

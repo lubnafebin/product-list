@@ -19,6 +19,7 @@
     scroll-snap-align: start;
     white-space: nowrap;   
     flex-shrink: 0;
+    border-bottom: 2px solid transparent;
     transition: color 0.2s, border-bottom 0.2;
 }
 
