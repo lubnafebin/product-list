@@ -26,9 +26,27 @@
     margin-bottom: 10px;
 }
 
+.product-category {
+  font-size: 0.8rem;
+  color: gray;
+}
+
 .product-name{
     font-size: 1.1rem;
     margin: 5px 0;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 5px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 5px;
 }
 
 .product-price{
