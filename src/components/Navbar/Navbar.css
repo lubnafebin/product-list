@@ -23,6 +23,7 @@
     color: green;
     font-weight: 600;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .search-bar {

@@ -1,0 +1,24 @@
+.cart-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.cart-page h2 {
+  margin-bottom: 20px;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.checkout-btn {
+  padding: 10px 12px;
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 12px;
+}

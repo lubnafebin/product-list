@@ -1,3 +1,4 @@
+import "./CartPage.css"
 import { useState } from "react";
 import { CartItem } from "../components/cart/CartItem";
 
@@ -39,7 +40,7 @@ export const CartPage = () => {
   );
   return (
     <div className="cart-page">
-      <h2>Your Cart</h2>
+      <h2>Review Your Order</h2>
       {cartItems.length === 0 ? (
         <p>Your Cart is Empty</p>
       ) : (
