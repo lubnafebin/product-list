@@ -1,5 +1,6 @@
 import { Banner } from "../components/banner/Banner";
 import { CategoryBar } from "../components/category/CategoryBar";
+import { Footer } from "../components/footer/Footer";
 import { ProductGrid } from "../components/products/ProductGrid";
 
 export const Home = () => {
@@ -50,6 +51,7 @@ export const Home = () => {
       <CategoryBar />
       <Banner />
       <ProductGrid products={products} />
+      <Footer/>
     </>
   );
 };
