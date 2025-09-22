@@ -48,7 +48,6 @@ export const Home = () => {
         "https://media.istockphoto.com/id/1322565117/photo/fresh-spinach-leaves-on-wooden-cutting-board-on-old-dark-wooden-table-background-top-view.webp?a=1&b=1&s=612x612&w=0&k=20&c=ka9P9nvZ8p0Mju59cLY0TjA9Q2iuALbzYiQOXqDunkU=",
     },
   ];
-
   const filteredProduct =
     selectedCategory === "All Vegetables"
       ? products

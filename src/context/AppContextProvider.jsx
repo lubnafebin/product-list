@@ -8,7 +8,26 @@ export const AppContextProvider = ({ children }) => {
   const [isSeller, setIsSeller] = useState(false);
   const [showUserLogin, setShowUserLogin] = useState(false);
   const [cartCount, setCartCount] = useState(2);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [cartItems, setCartItems] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All Vegetables");
+
+  //add to cart
+  const addToCart = (product) => {
+    const existing = cartItems.find((item) => item.id === product.id);
+    if (existing) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
+  //clear cart
+  const clearCart = () => setCartItems([]);
 
   const value = {
     navigate,
@@ -20,8 +39,12 @@ export const AppContextProvider = ({ children }) => {
     setShowUserLogin,
     cartCount,
     setCartCount,
+    cartItems,
+    setCartItems,
     selectedCategory,
-    setSelectedCategory
+    setSelectedCategory,
+    addToCart,
+    clearCart,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -7,8 +7,9 @@ import "./Navbar.css";
 
 export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { user, setUser, setShowUserLogin, navigate, cartCount } =
+  const { user, setUser, setShowUserLogin, navigate, cartItems } =
     useAppContext();
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const logout = () => {
     setUser(null);

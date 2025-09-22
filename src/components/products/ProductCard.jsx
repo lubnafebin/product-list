@@ -1,6 +1,8 @@
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import "./Products.css";
+import { useAppContext } from "../../context/AppContext";
 export const ProductCard = ({ product }) => {
+  const { addToCart } = useAppContext();
   const rating = 4.5;
   return (
     <div className="product-card">
@@ -21,7 +23,9 @@ export const ProductCard = ({ product }) => {
       <p className="product-price">
         <span className="old-price">₹{product.price + 20}</span>₹{product.price}
       </p>
-      <button className="add-btn">Add to Cart</button>
+      <button className="add-btn" onClick={() => addToCart(product)}>
+        Add to Cart
+      </button>
     </div>
   );
 };

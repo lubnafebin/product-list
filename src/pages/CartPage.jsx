@@ -1,24 +1,9 @@
-import "./CartPage.css"
-import { useState } from "react";
+import "./CartPage.css";
 import { CartItem } from "../components/cart/CartItem";
+import { useAppContext } from "../context/AppContext";
 
 export const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      title: "Carrot (1kg)",
-      price: 40,
-      quantity: 2,
-      image: "https://images.unsplash.com/photo-1639086495429-d60e72c53c81?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnJvdHN8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 2,
-      title: "Potato (1kg)",
-      price: 30,
-      quantity: 1,
-      image: "https://plus.unsplash.com/premium_photo-1702403157830-9df749dc6c1e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnJvY2NvbGl8ZW58MHx8MHx8fDA%3D",
-    },
-  ]);
+  const { cartItems, setCartItems } = useAppContext();
   // Update quantity
   const updateCartQuantity = (id, newQty) => {
     setCartItems((prev) =>
