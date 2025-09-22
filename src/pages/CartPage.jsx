@@ -1,6 +1,8 @@
 import "./CartPage.css";
+import toast from "react-hot-toast";
 import { CartItem } from "../components/cart/CartItem";
 import { useAppContext } from "../context/AppContext";
+import { FaCheckCircle } from "react-icons/fa";
 
 export const CartPage = () => {
   const { cartItems, setCartItems } = useAppContext();
@@ -16,6 +18,9 @@ export const CartPage = () => {
   // Remove item
   const removeFromCart = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
+     toast.success("Removed from Cart", {
+      icon: <FaCheckCircle className="text-green-500" />,
+    });
   };
 
   // Calculate total

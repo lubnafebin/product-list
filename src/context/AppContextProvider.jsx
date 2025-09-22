@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { AppContext } from "./AppContext";
 import { useNavigate } from "react-router-dom";
+import { FaCheckCircle } from "react-icons/fa";
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -25,6 +27,9 @@ export const AppContextProvider = ({ children }) => {
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
+     toast.success("Added to Cart", {
+      icon: <FaCheckCircle className="text-green-500" />,
+    });
   };
   //clear cart
   const clearCart = () => setCartItems([]);
