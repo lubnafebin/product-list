@@ -7,7 +7,8 @@ import "./Navbar.css";
 
 export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { user, setUser, setShowUserLogin, navigate, cartCount } = useAppContext();
+  const { user, setUser, setShowUserLogin, navigate, cartCount } =
+    useAppContext();
 
   const logout = () => {
     setUser(null);
@@ -45,11 +46,15 @@ export const Navbar = () => {
           </button>
         ) : (
           <div className="user-menu">
-            <button className="icon-btn" onClick={() => setDropdownOpen(!dropdownOpen)}>
+            <button
+              className="icon-btn"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
               <FaUser />
             </button>
             {dropdownOpen && (
               <div className="dropdown">
+                <a onClick={() => navigate("my-orders")}>My order</a>
                 <button onClick={logout}>Logout</button>
               </div>
             )}
@@ -59,4 +64,3 @@ export const Navbar = () => {
     </div>
   );
 };
-
