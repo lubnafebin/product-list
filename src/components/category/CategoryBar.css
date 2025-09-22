@@ -28,6 +28,11 @@
     border-bottom: 2px solid green;
 } 
 
+.category li.active {
+  color: green;
+  border-bottom: 2px solid green;
+}
+
 @media (max-width:768px) {
     .category{
         overflow-x: auto;

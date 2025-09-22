@@ -1,15 +1,26 @@
-import "./CategoryBar.css"
-export const CategoryBar = () => {
+import "./CategoryBar.css";
+export const CategoryBar = ({ setSelectedCategory, selectedCategory }) => {
+  const categories = [
+    "All Vegetables",
+    "Leafy Greens",
+    "Root Vegetables",
+    "Fruits & Berries",
+    "Herbs & Spices",
+    "Organic",
+    "Seasonal",
+  ];
   return (
     <div className="category">
       <ul>
-        <li>All Vegetables</li>
-        <li>Leafy Greens</li>
-        <li>Root Vegetables</li>
-        <li>Fruits & Berries</li>
-        <li>Herbs & Spices</li>
-        <li>Organic</li>
-        <li>Seasonal</li>
+        {categories.map((cat) => (
+          <li
+            key={cat}
+            className={selectedCategory === cat ? "active" : ""}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {cat}
+          </li>
+        ))}
       </ul>
     </div>
   );

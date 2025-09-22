@@ -7,8 +7,8 @@ export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isSeller, setIsSeller] = useState(false);
   const [showUserLogin, setShowUserLogin] = useState(false);
-  const [cartCount, setCartCount] = useState(2); // test value
-
+  const [cartCount, setCartCount] = useState(2);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const value = {
     navigate,
@@ -19,7 +19,9 @@ export const AppContextProvider = ({ children }) => {
     showUserLogin,
     setShowUserLogin,
     cartCount,
-    setCartCount
+    setCartCount,
+    selectedCategory,
+    setSelectedCategory
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
