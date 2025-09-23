@@ -1,7 +1,7 @@
 import "./CategoryBar.css";
 export const CategoryBar = ({ setSelectedCategory, selectedCategory }) => {
   const categories = [
-    "All Vegetables",
+    "All Products",
     "Leafy Greens",
     "Root Vegetables",
     "Fruits & Berries",

@@ -7,11 +7,24 @@ export const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setShowUserLogin } = useAppContext();
+  const { setShowUserLogin, setUser } = useAppContext();
+
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    setUser({
+      email: "abc@gmail.com",
+      name: "Anu",
+    });
+    setShowUserLogin(false)
+  };
 
   return (
     <div className="modal-overlay" onClick={() => setShowUserLogin(false)}>
-      <form onClick={(e) => e.stopPropagation()} className="form-container">
+      <form
+        onClick={(e) => e.stopPropagation()}
+        className="form-container"
+        onSubmit={onSubmitHandler}
+      >
         <p className="form-title">
           <span className="highlight">User</span>{" "}
           {state === "login" ? "Login" : "Sign Up"}

@@ -49,7 +49,7 @@ export const Home = () => {
     },
   ];
   const filteredProduct =
-    selectedCategory === "All Vegetables"
+    selectedCategory === "All Products"
       ? products
       : products.filter((p) => p.category === selectedCategory);
   return (

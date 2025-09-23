@@ -11,7 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const [showUserLogin, setShowUserLogin] = useState(false);
   const [cartCount, setCartCount] = useState(2);
   const [cartItems, setCartItems] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All Vegetables");
+  const [selectedCategory, setSelectedCategory] = useState("All Products");
 
   //add to cart
   const addToCart = (product) => {
