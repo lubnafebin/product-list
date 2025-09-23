@@ -5,6 +5,7 @@ import { CartPage } from "./pages/CartPage";
 import { Login } from "./components/login/Login";
 import { Toaster } from "react-hot-toast";
 import { useAppContext } from "./context/AppContext";
+import { ProductDetails } from "./pages/ProductDetails";
 
 function App() {
   const isSellerPath = useLocation().pathname.includes("seller");
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/products/:category/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );
