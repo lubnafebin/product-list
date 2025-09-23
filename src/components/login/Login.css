@@ -13,7 +13,7 @@
   z-index: 1000;
   display: flex; 
   flex-direction: column; 
-  gap: 16px; margin: auto; 
+  gap: 14px; margin: auto; 
   align-items: flex-start; 
   padding: 48px 32px;
   width: 320px; 
@@ -33,7 +33,7 @@
 }
 
 .highlight {
-  color: green; /* indigo-500 */
+  color: green; 
 }
 
 .form-group {
@@ -41,21 +41,21 @@
 }
 
 .form-group p {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .form-group input {
-  border: 1px solid #e5e7eb;
+  border: 1px solid #cccccd;
   border-radius: 6px;
   width: 100%;
   padding: 8px;
-  margin-top: 4px;
+  margin-top: 2px;
   outline: none;
   transition: border 0.2s;
 }
 
 .form-group input:focus {
-  border-color: #6366f1;
+  border-color: darkgreen;
 }
 
 .switch-text {
@@ -84,4 +84,21 @@
 
 .submit-btn:hover {
   background: darkgreen;
+}
+
+@media (max-width:480px) {
+.form-container {
+  width: 100%;
+  max-width: 250px; 
+  border-radius: 8px;
+  }
+
+.form-title {
+  font-size: 1.2rem;
+  }
+
+.submit-btn {
+  padding: 8px;
+  font-size: 0.9rem;
+  }
 }
