@@ -2,19 +2,35 @@ import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
 import logo from "./logo.png";
 import { useAppContext } from "../../context/AppContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 
 export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { user, setUser, setShowUserLogin, navigate, cartItems } =
-    useAppContext();
+  const {
+    user,
+    setUser,
+    setShowUserLogin,
+    navigate,
+    cartItems,
+    searchQuery,
+    setSearchQuery,
+  } = useAppContext();
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const logout = () => {
     setUser(null);
     navigate("/");
   };
+
+  useEffect(() => {
+    if (searchQuery.length > 0) {
+      const productSection = document.getElementById("product-section");
+      if (productSection) {
+        productSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [searchQuery]);
 
   return (
     <div className="navbar">
@@ -26,7 +42,11 @@ export const Navbar = () => {
 
       {/* Search Bar */}
       <div className="search-bar">
-        <input type="text" placeholder="Search items..." />
+        <input
+          type="text"
+          placeholder="Search items..."
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
         <button className="search-btn">
           <FaSearch />
         </button>
