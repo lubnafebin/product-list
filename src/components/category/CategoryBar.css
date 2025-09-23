@@ -1,6 +1,6 @@
 .category{
-    padding: 20px 20px;
     scroll-snap-type: x mandatory;
+    margin-top: 70px;
 }
 
 .category ul{
@@ -8,7 +8,7 @@
     justify-content: center;
     gap: 30px;
     margin: 0;
-    padding: 0;
+    padding: 8px 0;
     list-style: none;
 }
 
