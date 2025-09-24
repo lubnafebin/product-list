@@ -9,11 +9,15 @@ export const ProductCard = ({ product }) => {
       <div
         style={{ cursor: "pointer" }}
         onClick={() => {
-          {navigate(`products/${product.category.toLowerCase()}/${product.id}`);
-          window.scrollTo(0, 0)};
+          {
+            navigate(
+              `products/${product.category.toLowerCase()}/${product.id}`
+            );
+            window.scrollTo(0, 0);
+          }
         }}
       >
-        <img src={product.image} alt="product" className="product-img" />
+        <img src={product.images[0]} alt="product" className="product-img" />
         <p className="product-category">{product.category}</p>
         <h3 className="product-name">{product.name}</h3>
         <div className="rating">

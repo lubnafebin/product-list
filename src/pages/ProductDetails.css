@@ -11,6 +11,11 @@
   color: #666;
   margin-bottom: 20px;
 }
+.breadcrumb a{
+  text-decoration: none;
+  color: inherit;
+}
+
 .breadcrumb span.active {
   font-weight: 600;
   color: #000;
@@ -44,6 +49,7 @@
   overflow: hidden;
   width: 70px;
   height: 70px;
+  object-fit: cover;
 }
 .thumb img {
   width: 100%;
@@ -57,13 +63,12 @@
 /* Main image */
 .main-image {
   flex: 1;
-  border: 1px solid #eee;
   border-radius: 8px;
   padding: 10px;
 }
 .main-image img {
-  width: 100%;
-  height: auto;
+  width: 350px;
+  height: 350px;
   max-height: 450px;
   object-fit: contain;
   border-radius: 8px;

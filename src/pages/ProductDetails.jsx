@@ -24,11 +24,14 @@ export const ProductDetails = () => {
   //   };
   const { navigate, addToCart, products } = useAppContext();
   const { id } = useParams();
-  const [thumbnail, setThumbnail] = useState(product.images[0]);
-  const product = products.find((item) => item.id === id);
+  const product = products.find((item) => item.id === Number(id));
+  const [thumbnail, setThumbnail] = useState(null);
+  const rating = 4;
 
   useEffect(() => {
-    setThumbnail(product?.image[0] ? product.image[0] : null);
+    if (product?.images?.length) {
+      setThumbnail(product.images[0]);
+    }
   }, [product]);
 
   return (
@@ -70,20 +73,17 @@ export const ProductDetails = () => {
               {Array(5)
                 .fill("")
                 .map((_, i) => (
-                  <span
-                    key={i}
-                    className={i < product.rating ? "star filled" : "star"}
-                  >
+                  <span key={i} className={i < rating ? "star filled" : "star"}>
                     ★
                   </span>
                 ))}
-              <p>({product.rating})</p>
+              <p>({rating})</p>
             </div>
 
             {/* Price */}
             <div className="price-section">
               <p className="old-price">MRP: ${product.price}</p>
-              <p className="offer-price">MRP: ${product.offerPrice}</p>
+              <p className="offer-price">MRP: ₹{product.price + 20}</p>
               <span className="tax-note">(inclusive of all taxes)</span>
             </div>
 
