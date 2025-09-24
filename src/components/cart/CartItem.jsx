@@ -5,7 +5,7 @@ export const CartItem = ({ item, removeFromCart, updateCartQuantity }) => {
   return (
     <div className="cart-item">
       <div className="cart-item-info">
-        <img src={item.image} alt={item.title} className="cart-item-img" />
+        <img src={item.images[0]} alt={item.title} className="cart-item-img" />
         <div>
           <h3 className="cart-item-title">{item.title}</h3>
           <p className="cart-item-price">{item.price}</p>
