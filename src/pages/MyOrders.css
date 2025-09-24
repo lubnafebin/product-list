@@ -1,0 +1,100 @@
+.my-orders {
+  margin: 70px;
+  width: 80%; 
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.title {
+  padding: 20px 0;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
+}
+
+.order {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.order-info {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; 
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.order-info span {
+  font-size: 14px;
+  color: gray;
+}
+
+.order-info span:nth-child(3) {
+  text-align: right;
+}
+
+/* Order Item */
+.order-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; 
+  border-top: 1px solid #eee;
+  padding: 12px 0;
+  align-items: center;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item-image {
+  background: #f3f3f3;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.item-image img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.item-details h2 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.item-details p {
+  color: #666;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* Middle: Payment details stacked */
+.payment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: green;
+}
+
+/* Right: Amount */
+.amount {
+  font-size: 16px;
+  font-weight: 500;
+  color: green;
+  text-align: right;
+}
