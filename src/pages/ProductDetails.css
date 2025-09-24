@@ -1,6 +1,6 @@
 .product-details {
   margin-top: 80px; 
-  padding: 20px 40px;
+  padding: 30px 60px;
   font-family: Arial, sans-serif;
   color: #333;
 }
@@ -72,10 +72,12 @@
   max-height: 450px;
   object-fit: contain;
   border-radius: 8px;
+  border: 1px solid #eee;
 }
 
 /* Info section on right */
 .info .title {
+  margin-top: 0;
   display: block;       
   margin-bottom: 4px;
 }
