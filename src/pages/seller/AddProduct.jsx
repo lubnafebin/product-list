@@ -47,7 +47,7 @@ export const AddProduct = () => {
                     src={
                       files[index]
                         ? URL.createObjectURL(files[index])
-                        : "https://imgs.search.brave.com/r3y-TbVb5rJAWfyIOHfN_w9K51LJpQTbXM8x5SXIywo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8xNTQ1NC8xNTQ1/NDkzMy5wbmc_c2Vt/dD1haXNfd2hpdGVf/bGFiZWw"
+                        : "https://imgs.search.brave.com/9BRtpaeHsuBf-5ajeO4NtWTJfenE--Iu2rJhztzDZv0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzE1LzI4LzM2Lzc3/LzM2MF9GXzE1Mjgz/Njc3MzZfS2laNTk0/dUZ4QnlaVHZWQkw1/QjhhcHpCTE1mMGNm/RmQuanBn"
                     }
                     alt="uploadArea"
                     className="upload-image"

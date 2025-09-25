@@ -7,10 +7,10 @@
   border-bottom: 1px solid #d1d5db; 
 }
 .logo-content a{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 }
 
 .logo {
@@ -18,11 +18,11 @@
 }
 
 .logo-text{
-    color: green;
-    font-weight: 600;
-    font-size: 22px;
-    cursor: pointer;
-      text-decoration: none;
+  color: green;
+  font-weight: 600;
+  font-size: 22px;
+  cursor: pointer;
+  text-decoration: none;
 
 }
 
