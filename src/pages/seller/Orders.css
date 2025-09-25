@@ -1,0 +1,77 @@
+.orders-container {
+  position: fixed;               
+  top: 50px;     
+  left: 240px;    
+  right: 0;
+  bottom: 0;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.orders-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.order-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  max-width: 900px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.order-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: none;
+}
+
+.order-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.order-product {
+  font-weight: 500;
+}
+
+.order-quantity {
+  color: green; 
+  margin-left: 4px;
+}
+
+.order-quantity.hidden {
+  display: none;
+}
+
+.order-address {
+  font-size: 14px;
+}
+
+.order-name {
+  font-weight: 500;
+}
+
+.order-amount {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: 4rem;
+}
+
+.order-info {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+}

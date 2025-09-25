@@ -57,6 +57,7 @@
   padding-top: 4rem;
   display: flex;
   flex-direction: column;
+  position: fixed;
 }
 
 .sidebar-link {
