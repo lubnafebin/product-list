@@ -37,7 +37,7 @@
   max-width: 16rem;
   min-width: 4rem;
   border-right: 1px solid #d1d5db;
-  height: 650px;
+  height: 550px;
   font-size: 16px;
   padding-top: 4rem;
   display: flex;
@@ -52,16 +52,16 @@
   text-decoration: none;
   color: #374151; 
   border-right: 4px solid transparent;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .sidebar-link:hover {
-  background: #f3f4f6; /* gray-100 */
+  background: #f3f4f6; 
 }
 
 .sidebar-link.active {
-  background: rgba(99, 102, 241, 0.1); 
-  border-right: 6px solid green; 
+  background: rgba(119, 196, 152, 0.1); 
+  border-right: 4px solid green; 
   color: green;
 }
 
