@@ -31,9 +31,12 @@ export const SellerLayout = () => {
   return (
     <div>
       <div className="navbar">
-        <Link to="/">
-          <img className="logo" src={logo} alt="logo" />
-        </Link>
+        <div className="logo-content">
+          <Link to="/">
+            <img className="logo" src={logo} alt="logo" />
+            <span className="logo-text">VeggieCart</span>
+          </Link>
+        </div>
         <div className="navbar-right">
           <p>Hi! Admin</p>
           <button onClick={logout} className="logout-btn">
@@ -50,7 +53,7 @@ export const SellerLayout = () => {
             key={item.name}
             end={item.path === "/seller"}
             className={({ isActive }) =>
-              `sidebar-link ${isActive === 0 ? "active" : ""}`
+              `sidebar-link ${isActive ? "active" : ""}`
             }
           >
             <img src={item.icon} alt={`${item.name} icon`} className="icon" />

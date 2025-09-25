@@ -1,0 +1,150 @@
+import { useState } from "react";
+import "./AddProduct.css";
+export const AddProduct = () => {
+  const [files, setFiles] = useState([]);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [offerPrice, setOfferPrice] = useState("");
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+  };
+
+  const categories = [
+    { name: "Electronics" },
+    { name: "Clothing" },
+    { name: "Accessories" },
+  ];
+  return (
+    <div className="add-product-container">
+      <form onSubmit={onSubmitHandler} className="add-product-form">
+        {/* Product Images */}
+        <div className="form-group">
+          <label className="form-label">Product Image</label>
+          <div className="image-upload-container">
+            {Array(4)
+              .fill("")
+              .map((_, index) => (
+                <label
+                  key={index}
+                  htmlFor={`image${index}`}
+                  className="image-label"
+                >
+                  <input
+                    onChange={(e) => {
+                      const updatedFiles = [...files];
+                      updatedFiles[index] = e.target.files[0];
+                      setFiles(updatedFiles);
+                    }}
+                    accept="image/*"
+                    type="file"
+                    id={`image${index}`}
+                    hidden
+                  />
+                  <img
+                    src={
+                      files[index]
+                        ? URL.createObjectURL(files[index])
+                        : "https://imgs.search.brave.com/r3y-TbVb5rJAWfyIOHfN_w9K51LJpQTbXM8x5SXIywo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8xNTQ1NC8xNTQ1/NDkzMy5wbmc_c2Vt/dD1haXNfd2hpdGVf/bGFiZWw"
+                    }
+                    alt="uploadArea"
+                    className="upload-image"
+                  />
+                </label>
+              ))}
+          </div>
+        </div>
+
+        {/* Product Name */}
+        <div className="form-group">
+          <label className="form-label" htmlFor="product-name">
+            Product Name
+          </label>
+          <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            id="product-name"
+            type="text"
+            placeholder="Type here"
+            className="form-input"
+            required
+          />
+        </div>
+
+        {/* Product Description */}
+        <div className="form-group">
+          <label className="form-label" htmlFor="product-description">
+            Product Description
+          </label>
+          <textarea
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            id="product-description"
+            rows={4}
+            placeholder="Type here"
+            className="form-textarea"
+          />
+        </div>
+
+        {/* Category */}
+        <div className="form-group">
+          <label className="form-label" htmlFor="category">
+            Category
+          </label>
+          <select
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+            id="category"
+            className="form-select"
+          >
+            <option value="">Select Category</option>
+            {categories.map((item, index) => (
+              <option key={index} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Price & Offer */}
+        <div className="price-container">
+          <div className="price-group">
+            <label className="form-label" htmlFor="product-price">
+              Product Price
+            </label>
+            <input
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
+              id="product-price"
+              type="number"
+              placeholder="0"
+              className="form-input"
+              required
+            />
+          </div>
+
+          <div className="price-group">
+            <label className="form-label" htmlFor="offer-price">
+              Offer Price
+            </label>
+            <input
+              onChange={(e) => setOfferPrice(e.target.value)}
+              value={offerPrice}
+              id="offer-price"
+              type="number"
+              placeholder="0"
+              className="form-input"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit" className="add-button">
+          ADD
+        </button>
+      </form>
+    </div>
+  );
+};
