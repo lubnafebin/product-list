@@ -59,7 +59,7 @@ export const Orders = () => {
             <div>
               {order.items.map((item, idx) => (
                 <p key={idx} className="order-product">
-                  {item.product.name}
+                  {item.product.name}{" "}
                   <span
                     className={`order-quantity ${
                       item.quantity < 2 ? "hidden" : ""
