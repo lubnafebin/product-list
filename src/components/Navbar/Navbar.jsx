@@ -1,6 +1,6 @@
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import "./Navbar.css";
-import logo from "./logo.png";
+import logo from "../../assets/logo.png";
 import { useAppContext } from "../../context/AppContext";
 import { useEffect, useState } from "react";
 import "./Navbar.css";
