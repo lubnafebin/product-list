@@ -5,12 +5,12 @@ import { ProductGrid } from "../components/products/ProductGrid";
 import { useAppContext } from "../context/AppContext";
 
 export const Home = () => {
-  const { selectedCategory, setSelectedCategory, products } = useAppContext();
+  const { selectedCategory, setSelectedCategory, productslist } = useAppContext();
 
   const filteredProduct =
     selectedCategory === "All Products"
-      ? products
-      : products.filter((p) => p.category === selectedCategory);
+      ? productslist
+      : productslist.filter((p) => p.category === selectedCategory);
   return (
     <>
       <CategoryBar

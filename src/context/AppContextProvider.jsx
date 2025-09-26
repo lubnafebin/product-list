@@ -15,10 +15,11 @@ export const AppContextProvider = ({ children }) => {
   const [showUserLogin, setShowUserLogin] = useState(false);
   const [cartCount, setCartCount] = useState(2);
   const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [searchQuery, setSearchQuery] = useState([]);
 
-  const products = [
+  const productsList = [
     {
       id: 1,
       name: "Fresh Tomatoes",
@@ -158,6 +159,7 @@ export const AppContextProvider = ({ children }) => {
   ];
 
   //fetch seller status
+
   const fetchSeller = async () => {
     try {
       const { data } = await axios.get("/api/seller/is-auth");
@@ -168,6 +170,20 @@ export const AppContextProvider = ({ children }) => {
       }
     } catch {
       setIsSeller(false);
+    }
+  };
+
+  //fetch products
+  const fetchProducts = async () => {
+    try {
+      const { data } = await axios.get("/api/product/list");
+      if (data) {
+        setProducts(data.products);
+      } else {
+        toast.success(data.message);
+      }
+    } catch (error) {
+      toast.success(error.message);
     }
   };
 
@@ -194,6 +210,7 @@ export const AppContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchSeller();
+    fetchProducts();
   }, []);
 
   const value = {
@@ -214,8 +231,10 @@ export const AppContextProvider = ({ children }) => {
     clearCart,
     searchQuery,
     setSearchQuery,
+    productsList,
     products,
     axios,
+    fetchProducts
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
