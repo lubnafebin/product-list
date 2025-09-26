@@ -35,7 +35,13 @@ export const ProductCard = ({ product }) => {
           <span className="old-price">₹{product.price + 20}</span>₹
           {product.price}
         </p>
-        <button className="add-btn" onClick={() => addToCart(product)}>
+        <button
+          className="add-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            addToCart(product);
+          }}
+        >
           Add to Cart
         </button>
       </div>

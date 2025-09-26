@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import toast from "react-hot-toast";
 import { AppContext } from "./AppContext";
 import { useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -152,6 +156,21 @@ export const AppContextProvider = ({ children }) => {
       ],
     },
   ];
+
+  //fetch seller status
+  const fetchSeller = async () => {
+    try {
+      const { data } = await axios.get("/api/seller/is-auth");
+      if (data.success) {
+        setIsSeller(true);
+      } else {
+        setIsSeller(false);
+      }
+    } catch {
+      setIsSeller(false);
+    }
+  };
+
   //add to cart
   const addToCart = (product) => {
     const existing = cartItems.find((item) => item.id === product.id);
@@ -173,6 +192,10 @@ export const AppContextProvider = ({ children }) => {
   //clear cart
   const clearCart = () => setCartItems([]);
 
+  useEffect(() => {
+    fetchSeller();
+  }, []);
+
   const value = {
     navigate,
     user,
@@ -192,6 +215,7 @@ export const AppContextProvider = ({ children }) => {
     searchQuery,
     setSearchQuery,
     products,
+    axios,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
