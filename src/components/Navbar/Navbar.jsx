@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import { useAppContext } from "../../context/AppContext";
 import { useEffect, useState } from "react";
 import "./Navbar.css";
+import toast from "react-hot-toast";
 
 export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,15 +13,25 @@ export const Navbar = () => {
     setUser,
     setShowUserLogin,
     navigate,
-    cartItems,
+    // cartItems,
     searchQuery,
     setSearchQuery,
+    axios,
   } = useAppContext();
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  // const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-  const logout = () => {
-    setUser(null);
-    navigate("/");
+  const logout = async () => {
+    try {
+      const { data } = await axios.get("/api/user/logout");
+      if (data.success) {
+        setUser(null);
+        navigate("/");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {
@@ -57,7 +68,7 @@ export const Navbar = () => {
         {/* Cart */}
         <button className="icon-btn cart-btn" onClick={() => navigate("/cart")}>
           <FaShoppingCart />
-          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          {/* {cartCount > 0 && <span className="cart-badge">{cartCount}</span>} */}
         </button>
 
         {/* User */}
