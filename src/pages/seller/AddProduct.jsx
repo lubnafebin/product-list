@@ -47,9 +47,12 @@ export const AddProduct = () => {
   };
 
   const categories = [
-    { name: "Electronics" },
-    { name: "Clothing" },
-    { name: "Accessories" },
+    { name: "Leafy Greens" },
+    { name: "Root Vegetables" },
+    { name: "Fruits & Berries" },
+    { name: "Herbs & Spices" },
+    { name: "Organic" },
+    { name: "Seasonal" },
   ];
   return (
     <div className="add-product-container">
