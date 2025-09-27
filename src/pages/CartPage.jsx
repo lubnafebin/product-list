@@ -5,48 +5,84 @@ import { useAppContext } from "../context/AppContext";
 import { FaCheckCircle } from "react-icons/fa";
 
 export const CartPage = () => {
-  const { cartItems, setCartItems } = useAppContext();
-  // Update quantity
-  const updateCartQuantity = (id, newQty) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: newQty } : item
-      )
-    );
-  };
-
+  const { setCartItems } = useAppContext();
+  // // Update quantity
+  // const updateCartQuantity = (id, newQty) => {
+  //   setCartItems((prev) =>
+  //     prev.map((item) =>
+  //       item.id === id ? { ...item, quantity: newQty } : item
+  //     )
+  //   );
+  // };
+  const cartItems = [
+    {
+      _id: 1,
+      name: "Running Shoes",
+      description: [
+        "Lightweight and comfortable",
+        "Breathable mesh upper",
+        "Ideal for jogging and casual wear",
+      ],
+      offerPrice: 250,
+      price: 200,
+      quantity: 1,
+      size: 42,
+      image:
+        "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage.png",
+      category: "Footwear",
+    },
+    // {
+    //   name: "Running Shoes",
+    //   description: [
+    //     "Lightweight and comfortable",
+    //     "Breathable mesh upper",
+    //     "Ideal for jogging and casual wear",
+    //   ],
+    //   offerPrice: 250,
+    //   price: 200,
+    //   quantity: 1,
+    //   size: 42,
+    //   image:
+    //     "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage2.png",
+    //   category: "Footwear",
+    // },
+    // {
+    //   name: "Running Shoes",
+    //   description: [
+    //     "Lightweight and comfortable",
+    //     "Breathable mesh upper",
+    //     "Ideal for jogging and casual wear",
+    //   ],
+    //   offerPrice: 250,
+    //   price: 200,
+    //   quantity: 1,
+    //   size: 42,
+    //   image:
+    //     "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage3.png",
+    //   category: "Footwear",
+    // },
+  ];
   // Remove item
   const removeFromCart = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
-     toast.success("Removed from Cart", {
+    toast.success("Removed from Cart", {
       icon: <FaCheckCircle className="text-green-500" />,
     });
   };
 
-  // Calculate total
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
   return (
     <div className="cart-page">
-      <h2>Review Your Order</h2>
       {cartItems.length === 0 ? (
         <p>Your Cart is Empty</p>
       ) : (
         <>
           {cartItems.map((item) => (
             <CartItem
-              key={item.id}
+              key={item._id}
               item={item}
-              updateCartQuantity={updateCartQuantity}
               removeFromCart={removeFromCart}
             />
           ))}
-          <div className="cart-summary">
-            <h3>Total: ₹{total.toFixed(2)}</h3>
-            <button className="checkout-btn">Proceed to Checkout</button>
-          </div>
         </>
       )}
     </div>
