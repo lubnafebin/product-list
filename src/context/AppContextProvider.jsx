@@ -201,11 +201,11 @@ export const AppContextProvider = ({ children }) => {
 
   //add to cart
   const addToCart = (product) => {
-    const existing = cartItems.find((item) => item.id === product.id);
+    const existing = cartItems.find((item) => item._id === product._id);
     if (existing) {
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id
+          item._id === product._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         )
@@ -225,6 +225,23 @@ export const AppContextProvider = ({ children }) => {
     fetchSeller();
     fetchProducts();
   }, []);
+  
+  //update database cartItems
+  const updateCart = async () => {
+    try {
+      const { data } = await axios.post("/api/cart/update",{cartItems});
+      if (!data.success) {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+  useEffect(() => {
+    if (user) {
+      updateCart();
+    }
+  }, [cartItems]);
 
   const value = {
     navigate,

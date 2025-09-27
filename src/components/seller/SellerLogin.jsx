@@ -33,7 +33,7 @@ export const SellerLogin = () => {
   }, [isSeller, navigate]);
   return (
     !isSeller && (
-      <form onSubmit={onSubmitHandler} className="form">
+      <form onSubmit={onSubmitHandler} className="forms-container">
         <div>
           <p className="form-title">
             <span className="highlight">Seller</span> Login

@@ -32,8 +32,8 @@ export const ProductCard = ({ product }) => {
           )}
         </div>
         <p className="product-price">
-          <span className="old-price">₹{product.price + 20}</span>₹
-          {product.price}
+          <span className="old-price">₹{product.price}</span>₹
+          {product.offerPrice}
         </p>
         <button
           className="add-btn"
