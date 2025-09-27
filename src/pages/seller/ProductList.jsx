@@ -1,8 +1,24 @@
 import "./ProductList.css";
 import { useAppContext } from "../../context/AppContext";
+import toast from "react-hot-toast";
 
 export const ProductList = () => {
-  const { products } = useAppContext();
+  const { products, axios, fetchProducts } = useAppContext();
+
+  const toggleStock = async (id, inStock) => {
+    try {
+      const { data } = await axios.post("/api/product/stock", { id, inStock });
+      if (data) {
+        fetchProducts();
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className="product-list-container">
       <div className="product-list-wrapper">
@@ -19,7 +35,7 @@ export const ProductList = () => {
             </thead>
             <tbody>
               {products.map((product) => (
-                <tr key={product.id}>
+                <tr key={product._id}>
                   <td className="product-list-product-cell">
                     <div className="product-list-image-wrapper">
                       <img src={product.images[0]} alt="Product" />
@@ -30,7 +46,13 @@ export const ProductList = () => {
                   <td className="hide-mobile">${product.price}</td>
                   <td>
                     <label className="switch">
-                      <input type="checkbox" />
+                      <input
+                        onClick={() =>
+                          toggleStock(product._id, !product.inStock)
+                        }
+                        checked={product.inStock}
+                        type="checkbox"
+                      />
                       <span className="slider"></span>
                     </label>
                   </td>
