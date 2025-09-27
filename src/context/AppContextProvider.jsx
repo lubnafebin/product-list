@@ -173,6 +173,18 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  const fetchUser = async () => {
+    try {
+      const { data } = await axios.get("/api/user/is-auth");
+      if (data.success) {
+        setUser(data.user);
+        setCartItems(data.user.cartItems);
+      }
+    } catch {
+      setUser(null);
+    }
+  };
+
   //fetch products
   const fetchProducts = async () => {
     try {
@@ -209,6 +221,7 @@ export const AppContextProvider = ({ children }) => {
   const clearCart = () => setCartItems([]);
 
   useEffect(() => {
+    fetchUser();
     fetchSeller();
     fetchProducts();
   }, []);
@@ -233,7 +246,7 @@ export const AppContextProvider = ({ children }) => {
     setSearchQuery,
     products,
     axios,
-    fetchProducts
+    fetchProducts,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
