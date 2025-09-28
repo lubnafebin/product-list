@@ -1,12 +1,54 @@
-.address-container{
-    margin-top: 16px;
-    padding: 20px;
+.address-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
 }
-.address-title{
-    font-size: 16px;
-    font-weight: 500;
+
+.address-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.address-title span{
-    font-weight: 600;
-    color: green;
+
+.address-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.address-title span {
+  font-weight: 600;
+  color: green;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row > * {
+  flex: 1; 
+}
+
+.save-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.save-button:hover {
+  background-color: darkgreen;
 }
