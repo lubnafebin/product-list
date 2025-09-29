@@ -222,11 +222,7 @@ export const AppContextProvider = ({ children }) => {
 
   //get cart item count
   const getCartCount = () => {
-    let totalCount = 0;
-    for (const item in cartItems) {
-      totalCount += cartItems[item];
-    }
-    return totalCount;
+    return cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
   };
 
   //get cart total amount

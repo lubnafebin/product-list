@@ -13,7 +13,7 @@
   font-weight: 500;
 }
 
-.order-card {
+.orders-card {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   align-items: center;
@@ -26,49 +26,49 @@
   margin-bottom: 8px;
 }
 
-.order-item {
+.orders-item {
   display: flex;
   gap: 12px;
   align-items: center;
   border: none;
 }
 
-.order-icon {
+.orders-icon {
   width: 48px;
   height: 48px;
   object-fit: cover;
   opacity: 0.6;
 }
 
-.order-product {
+.orders-product {
   font-weight: 500;
 }
 
-.order-quantity {
+.orders-quantity {
   color: green; 
   margin-left: 4px;
 }
 
-.order-quantity.hidden {
+.orders-quantity.hidden {
   display: none;
 }
 
-.order-address {
+.orders-address {
   font-size: 14px;
 }
 
-.order-name {
+.orders-name {
   font-weight: 500;
 }
 
-.order-amount {
+.orders-amount {
   font-size: 16px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.7);
   margin-left: 4rem;
 }
 
-.order-info {
+.orders-info {
   font-size: 14px;
   display: flex;
   flex-direction: column;

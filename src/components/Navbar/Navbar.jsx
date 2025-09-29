@@ -13,12 +13,11 @@ export const Navbar = () => {
     setUser,
     setShowUserLogin,
     navigate,
-    cartItems,
     searchQuery,
     setSearchQuery,
     axios,
+    getCartCount,
   } = useAppContext();
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const logout = async () => {
     try {
@@ -68,7 +67,7 @@ export const Navbar = () => {
         {/* Cart */}
         <button className="icon-btn cart-btn" onClick={() => navigate("/cart")}>
           <FaShoppingCart />
-          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          <span className="cart-badge">{getCartCount()}</span>
         </button>
 
         {/* User */}

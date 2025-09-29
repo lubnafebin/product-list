@@ -65,8 +65,8 @@ export const MyOrders = () => {
 
   return (
     <div className="my-orders">
-      <div className="container">
-        <p className="title">My Orders</p>
+      <div className="order-container">
+        <p className="order-title">My Orders</p>
 
         {myOrders.map((order, index) => (
           <div key={index} className="order">
@@ -78,24 +78,24 @@ export const MyOrders = () => {
 
             {order.item.map((item, idx) => (
               <div key={idx} className="order-item">
-                <div className="item-left">
-                  <div className="item-image">
+                <div className="order-item-left">
+                  <div className="order-item-image">
                     <img src={item.product.images[0]} alt={item.product.name} />
                   </div>
-                  <div className="item-details">
+                  <div className="order-item-details">
                     <h2>{item.product.name}</h2>
                     <p>Category: {item.product.category}</p>
                   </div>
                 </div>
 
-                <div className="payment-details">
+                <div className="order-payment-details">
                   <span>Quantity: {item.quantity}</span>
                   <span>Status: {order.status}</span>
                   <span>
                     Date: {new Date(order.createdAt).toLocaleDateString()}
                   </span>
                 </div>
-                <div className="amount">
+                <div className="order-amount">
                   Amount:₹{item.product.offerPrice * item.quantity}
                 </div>
               </div>

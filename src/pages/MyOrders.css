@@ -3,13 +3,13 @@
   width: 80%; 
 }
 
-.container {
+.order-container {
   display: flex;
   flex-direction: column;
   width: 90%; 
 }
 
-.title {
+.order-title {
   padding: 20px 0;
   font-size: 22px;
   font-weight: 600;
@@ -51,39 +51,39 @@
   align-items: center;
 }
 
-.item-left {
+.order-item-left {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.item-image {
+.order-item-image {
   background: #f3f3f3;
   padding: 8px;
   border-radius: 8px;
 }
 
-.item-image img {
+.order-item-image img {
   width: 60px;
   height: 60px;
   object-fit: cover;
 }
 
-.item-details h2 {
+.order-item-details h2 {
   font-size: 16px;
   margin: 0;
   font-weight: 600;
   color: #333;
 }
 
-.item-details p {
+.order-item-details p {
   color: #666;
   margin-top: 4px;
   font-size: 13px;
 }
 
 /* Middle: Payment details stacked */
-.payment-details {
+.order-payment-details {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -92,7 +92,7 @@
 }
 
 /* Right: Amount */
-.amount {
+.order-amount {
   font-size: 16px;
   font-weight: 500;
   color: green;

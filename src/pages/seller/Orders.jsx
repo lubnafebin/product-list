@@ -52,16 +52,16 @@ export const Orders = () => {
     <div className="orders-container">
       <h2 className="orders-title">Orders List</h2>
       {orders.map((order, index) => (
-        <div key={index} className="order-card">
+        <div key={index} className="orders-card">
           {/* Product */}
-          <div className="order-item">
-            <img className="order-icon" src={boxIcon} alt="boxIcon" />
+          <div className="orders-item">
+            <img className="orders-icon" src={boxIcon} alt="boxIcon" />
             <div>
               {order.items.map((item, idx) => (
-                <p key={idx} className="order-product">
+                <p key={idx} className="orders-product">
                   {item.product.name}{" "}
                   <span
-                    className={`order-quantity ${
+                    className={`orders-quantity ${
                       item.quantity < 2 ? "hidden" : ""
                     }`}
                   >
@@ -73,8 +73,8 @@ export const Orders = () => {
           </div>
 
           {/* Address */}
-          <div className="order-address">
-            <p className="order-name">
+          <div className="orders-address">
+            <p className="orders-name">
               {order.address.firstName} {order.address.lastName}
             </p>
             <p>
@@ -85,10 +85,10 @@ export const Orders = () => {
           </div>
 
           {/* Amount */}
-          <p className="order-amount">${order.amount}</p>
+          <p className="orders-amount">${order.amount}</p>
 
           {/* Payment Info */}
-          <div className="order-info">
+          <div className="orders-info">
             <span>Method: {order.paymentType}</span>
             <span>Date: {new Date(order.createdAt).toLocaleDateString()}</span>
             <span>Payment: {order.isPaid ? "Paid" : "Pending"}</span>
