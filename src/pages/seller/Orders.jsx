@@ -1,48 +1,26 @@
 import { useEffect, useState } from "react";
 import "./Orders.css";
+import toast from "react-hot-toast";
+import { useAppContext } from "../../context/AppContext";
+
 export const Orders = () => {
   const boxIcon =
     "https://imgs.search.brave.com/7uQUsmhSVLBcJYkr0GT1VhBA4z8UklnpIiVmQxYuod0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8xMzM4Ni8xMzM4/NjI5MC5wbmc_c2Vt/dD1haXNfd2hpdGVf/bGFiZWw";
 
-  const dummyOrders = [
-    {
-      id: 1,
-      items: [{ product: { name: "Nike Air Max 270" }, quantity: 1 }],
-      address: {
-        firstName: "John",
-        lastName: "Doe",
-        street: "123 Main St",
-        city: "New York",
-        state: "NY",
-        zipcode: "10001",
-        country: "USA",
-      },
-      amount: 320.0,
-      paymentType: "Credit Card",
-      isPaid: true,
-    },
-    {
-      id: 2,
-      items: [{ product: { name: "Nike Air Max 270" }, quantity: 2 }],
-      address: {
-        firstName: "Alice",
-        lastName: "Smith",
-        street: "456 Market St",
-        city: "Chicago",
-        state: "IL",
-        zipcode: "60601",
-        country: "USA",
-      },
-      amount: 640.0,
-      paymentType: "PayPal",
-      isPaid: false,
-    },
-  ];
-
   const [orders, setOrders] = useState([]);
+  const { axios } = useAppContext();
 
   const fetchOrders = async () => {
-    setOrders(dummyOrders);
+    try {
+      const { data } = await axios.get("/api/order/seller");
+      if (data.success) {
+        setOrders(data.order);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {

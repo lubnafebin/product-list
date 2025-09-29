@@ -36,7 +36,7 @@ export const CartPage = () => {
         });
         if (data.success) {
           toast.success(data.message);
-          setCartItems({});
+          setCartItems([]);
           navigate("/my-orders");
         } else {
           toast.error(data.message);

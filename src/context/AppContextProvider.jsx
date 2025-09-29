@@ -178,6 +178,7 @@ export const AppContextProvider = ({ children }) => {
       const { data } = await axios.get("/api/user/is-auth");
       if (data.success) {
         setUser(data.user);
+        console.log(data.user.cartItems);
         setCartItems(data.user.cartItems);
       }
     } catch {
@@ -222,6 +223,8 @@ export const AppContextProvider = ({ children }) => {
 
   //get cart item count
   const getCartCount = () => {
+    console.log(cartItems);
+    
     return cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
   };
 
