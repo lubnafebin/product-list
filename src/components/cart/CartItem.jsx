@@ -1,37 +1,7 @@
 import "./CartItem.css";
 import { FaTrash } from "react-icons/fa";
-import { useAppContext } from "../../context/AppContext";
 
 export const CartItem = ({ item, removeFromCart, updateCartQuantity }) => {
-  // const address = [
-  //   {
-  //     _id: 1,
-  //     firstName: "jon",
-  //     lastName: "doe",
-  //     email: "j@gmail.com",
-  //     street: "abc",
-  //     city: "xyz",
-  //     state: "yz",
-  //     country: "australia",
-  //     zipcode: 1234,
-  //     phone: "9087654321",
-  //   },
-  //   {
-  //     _id: 2,
-  //     firstName: "jon",
-  //     lastName: "doe",
-  //     email: "j@gmail.com",
-  //     street: "abc",
-  //     city: "xyz",
-  //     state: "yz",
-  //     country: "australia",
-  //     zipcode: 1234,
-  //     phone: "9087654321",
-  //   },
-  // ];
-
-  const { cartItems } = useAppContext();
-
   return (
     <div className="cart-row">
       <div className="cart-product">
@@ -43,20 +13,17 @@ export const CartItem = ({ item, removeFromCart, updateCartQuantity }) => {
           <p className="product-info">Weight: {item.weight || "N/A"}</p>
           <div className="product-qty">
             <p>Qty:</p>
-            <select
-              onChange={(e) =>
-                updateCartQuantity(item._id, Number(e.target.value))
-              }
-              value={cartItems[item._Id]}
+            <button
+              onClick={() => updateCartQuantity(item._id, item.quantity--)}
             >
-              {Array(5)
-                .fill("")
-                .map((_, i) => (
-                  <option key={i} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-            </select>
+              -
+            </button>
+            <span>{item.quantity}</span>
+            <button
+              onClick={() => updateCartQuantity(item._id, item.quantity++)}
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
