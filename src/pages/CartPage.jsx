@@ -67,7 +67,7 @@ export const CartPage = () => {
       const { data } = await axios.get("/api/address/get");
       if (data.success) {
         setAddresses(data.addresses);
-        if (data.address.length > 0) {
+        if (data.addresses.length > 0) {
           setSelectedAddress(data.addresses[0]);
         }
       } else {
@@ -86,7 +86,7 @@ export const CartPage = () => {
 
   return (
     <div className="cart-page">
-      {cartItems.length === 0 ? (
+      {cartItems?.length === 0 ? (
         <p>Your Cart is Empty</p>
       ) : (
         <div className="cart-container">
