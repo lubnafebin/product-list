@@ -11,7 +11,7 @@ export const ProductCard = ({ product }) => {
         onClick={() => {
           {
             navigate(
-              `products/${product.category.toLowerCase()}/${product.id}`
+              `products/${product.category.toLowerCase()}/${product._id}`
             );
             window.scrollTo(0, 0);
           }
@@ -35,6 +35,7 @@ export const ProductCard = ({ product }) => {
           <span className="old-price">₹{product.price}</span>₹
           {product.offerPrice}
         </p>
+        {!product.inStock && <span>Out of Stock</span>}
         <button
           className="add-btn"
           onClick={(e) => {
