@@ -22,6 +22,7 @@ export const Login = () => {
         navigate("/");
         setUser(data.user);
         setShowUserLogin(false);
+        toast.success(data.message)
       } else {
         toast.error(data.message);
       }
