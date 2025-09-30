@@ -34,10 +34,27 @@ export const CartPage = () => {
           })),
           address: selectedAddress._id,
         });
+
         if (data.success) {
           toast.success(data.message);
           setCartItems([]);
           navigate("/my-orders");
+        } else {
+          toast.error(data.message);
+        }
+      } else {
+        //payment using stripe
+        const { data } = await axios.post("/api/order/stripe", {
+          userId: user._id,
+          items: cartItems.map((item) => ({
+            product: item._id,
+            quantity: item.quantity,
+          })),
+          address: selectedAddress._id,
+        });
+
+        if (data.success) {
+          window.location.replace(data.url);
         } else {
           toast.error(data.message);
         }
