@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 export const ProductDetails = () => {
   const { navigate, addToCart, products } = useAppContext();
   const { id } = useParams();
-  const product = products.find((item) => item.id === Number(id));
+  const product = products.find((item) => item._id === id);
   const [thumbnail, setThumbnail] = useState(null);
   const rating = 4;
 
