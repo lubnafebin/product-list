@@ -22,7 +22,7 @@ export const Login = () => {
         navigate("/");
         setUser(data.user);
         setShowUserLogin(false);
-        toast.success(data.message)
+        toast.success(data.message);
       } else {
         toast.error(data.message);
       }
@@ -94,7 +94,7 @@ export const Login = () => {
           </p>
         )}
 
-        <button className="submit-btn">
+        <button className="submit-button">
           {state === "register" ? "Create Account" : "Login"}
         </button>
       </form>

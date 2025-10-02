@@ -4,8 +4,8 @@
   flex-direction: column; 
   gap: 16px; 
   align-items: center; 
-  width: 280px; 
-  max-width: 350px; 
+  width: 100%; 
+  max-width: 250px; 
   color: #6b7280;  
   border-radius: 12px; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
@@ -19,7 +19,6 @@
 .form-title {
   font-size: 1.5rem;
   font-weight: 500;
-  margin: auto;
 }
 
 .highlight {
@@ -63,4 +62,23 @@
 
 .submit-btn:hover {
   background: darkgreen;
+}
+
+@media (max-width:480px) {
+  .forms-container {
+    width: 70%;        
+    max-width: 100%;
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin-top: 12rem;
+  }
+
+  .form-title {
+    font-size: 1.2rem;
+  }
+
+  .submit-btn {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
 }
