@@ -49,7 +49,9 @@ export const ProductDetails = () => {
           {/* Right: Info */}
           <div className="info">
             <h1 className="title">{product.name}</h1>
-
+            {!product.inStock && (
+              <span className="out-of-stock">Out of Stock</span>
+            )}
             {/* Rating */}
             <div className="rating-start">
               {Array(5)

@@ -35,7 +35,6 @@ export const ProductCard = ({ product }) => {
           <span className="old-price">₹{product.price}</span>₹
           {product.offerPrice}
         </p>
-        {!product.inStock && <span>Out of Stock</span>}
         <button
           className="add-btn"
           onClick={(e) => {
