@@ -33,6 +33,7 @@
   display: flex;
   gap: 15px;
   flex: 1;
+  width: 100%;
   max-width: 450px;
 }
 
@@ -82,7 +83,7 @@
   margin-bottom: 4px;
 }
 
-.rating {
+.rating-start {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -97,7 +98,7 @@
 .star.filled {
   color: gold;
 }
-.rating p {
+.rating-start p {
   margin: 0;
   font-size: 14px;
   color: #666;
@@ -165,4 +166,27 @@
 }
 .btn.secondary:hover {
   background: #ddd;
+}
+
+@media (max-width:480px) {
+  .product-details{
+    padding: 10px;
+    margin-top: 60px;
+  }
+  .details-container{
+    flex-direction: column;
+  }
+  .images{
+    flex-direction: column-reverse;
+  }
+  .main-image img{
+    width: 100%;
+    height: 150px;
+  }
+  .thumbnails{
+    flex-direction: row;
+  }
+  .info{
+    margin: auto;
+  }
 }

@@ -51,7 +51,7 @@ export const ProductDetails = () => {
             <h1 className="title">{product.name}</h1>
 
             {/* Rating */}
-            <div className="rating">
+            <div className="rating-start">
               {Array(5)
                 .fill("")
                 .map((_, i) => (
@@ -65,7 +65,7 @@ export const ProductDetails = () => {
             {/* Price */}
             <div className="price-section">
               <p className="old-price">MRP: ${product.price}</p>
-              <p className="offer-price">MRP: ₹{product.price + 20}</p>
+              <p className="offer-price">MRP: ₹{product.offerPrice}</p>
               <span className="tax-note">(inclusive of all taxes)</span>
             </div>
 
