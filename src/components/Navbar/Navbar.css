@@ -75,9 +75,7 @@
   font-size: 1.6rem;
   color: green;
   position: relative;
-
 }
-
 
 .cart-badge {
   position: absolute;
@@ -90,7 +88,6 @@
   font-size: 0.7rem;
   font-weight: bold;
 }
-
 
 .login-btn {
   background: green;

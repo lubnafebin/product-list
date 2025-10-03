@@ -85,8 +85,22 @@ export const Navbar = () => {
             </button>
             {dropdownOpen && (
               <div className="dropdown">
-                <a onClick={() => navigate("my-orders")}>My order</a>
-                <button onClick={logout}>Logout</button>
+                <a
+                  onClick={() => {
+                    navigate("my-orders");
+                    setDropdownOpen(false);
+                  }}
+                >
+                  My order
+                </a>
+                <button
+                  onClick={() => {
+                    logout();
+                    setDropdownOpen(false); 
+                  }}
+                >
+                  Logout
+                </button>
               </div>
             )}
           </div>
