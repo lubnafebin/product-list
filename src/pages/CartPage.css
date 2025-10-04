@@ -138,3 +138,12 @@
 .cart-page {
   padding: 30px;
 }
+
+@media (max-width:480px) {
+.cart-container{
+  padding: 0;
+}
+.cart-title{
+  margin-bottom: 2px;
+}
+} 
