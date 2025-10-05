@@ -1,6 +1,7 @@
 .my-orders {
-  margin: 70px;
+  margin: 70px auto;
   width: 80%; 
+  max-width: 1000px;
 }
 
 .order-container {
@@ -97,4 +98,87 @@
   font-weight: 500;
   color: green;
   text-align: right;
+}
+
+@media (max-width: 768px) {
+  .my-orders {
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  .order-info,
+  .order-item {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .order-info span:nth-child(3),
+  .order-amount {
+    text-align: left;
+  }
+
+  .order-item-left img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .order-title {
+    font-size: 20px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+  .my-orders {
+    width: 90%;
+    margin: 40px;
+  }
+
+  .order-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .order-info {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 4px;
+  }
+
+  .order-info span {
+    font-size: 13px;
+  }
+
+  .order-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .order-item-left {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .order-item-image img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .order-item-details h2 {
+    font-size: 15px;
+  }
+
+  .order-item-details p {
+    font-size: 12px;
+  }
+
+  .order-payment-details {
+    font-size: 13px;
+    align-items: center;
+  }
+
+  .order-amount {
+    text-align: center;
+    font-size: 15px;
+  }
 }
