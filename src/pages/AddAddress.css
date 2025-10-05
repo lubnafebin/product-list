@@ -52,3 +52,44 @@
 .save-button:hover {
   background-color: darkgreen;
 }
+
+@media (max-width: 768px) {
+  .address-container {
+    margin-top: 60px;
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  .address-title {
+    font-size: 18px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .save-button {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .address-container {
+    margin-top: 80px;
+    padding: 10px;
+    max-width: 80%;
+  }
+
+  .address-title {
+    font-size: 17px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
