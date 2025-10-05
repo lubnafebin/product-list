@@ -46,6 +46,12 @@
   background: #f3f4f6; 
 }
 
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 /* Sidebar */
 .sidebar {
   width: 14rem; 
@@ -81,6 +87,19 @@
   color: green;
 }
 
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.open::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+
 .icon {
   width: 24px;
   height: 24px;
@@ -89,4 +108,29 @@
 .link-text {
   display: block;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  /* Hide sidebar off-screen */
+  .sidebar {
+    transform: translateX(-100%);
+    z-index: 999;
+  }
+
+  /* Navbar adjustments */
+  .navbar-right p {
+    display: none; /* hide "Hi! Admin" */
+  }
+
+  .logout-btn {
+    display: none; /* optional: hide logout */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
 }

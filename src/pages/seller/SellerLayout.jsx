@@ -1,12 +1,14 @@
 import logo from "../../assets/logo.png";
 import "./SellerLayout.css";
 import { useAppContext } from "../../context/AppContext";
-import { FaList, FaPlus, FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 export const SellerLayout = () => {
   const { axios, navigate } = useAppContext();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const sidebarLinks = [
     {
       name: "Add Product",
@@ -53,6 +55,12 @@ export const SellerLayout = () => {
           <button onClick={logout} className="logout-btn">
             Logout
           </button>
+          <div
+            className="hamburger"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+          >
+            ☰
+          </div>
         </div>
       </div>
 
@@ -66,6 +74,7 @@ export const SellerLayout = () => {
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`
             }
+            onClick={() => setSidebarOpen(false)}
           >
             <img src={item.icon} alt={`${item.name} icon`} className="icon" />
             <p className="link-text">{item.name}</p>
