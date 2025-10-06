@@ -65,7 +65,7 @@ export const SellerLayout = () => {
       </div>
 
       {/* Sidebar */}
-      <div className="sidebar">
+      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         {sidebarLinks.map((item) => (
           <NavLink
             to={item.path}
@@ -81,6 +81,15 @@ export const SellerLayout = () => {
           </NavLink>
         ))}
       </div>
+
+      {/* Overlay */}
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       <Outlet />
     </div>
   );

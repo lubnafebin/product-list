@@ -98,7 +98,12 @@
   background: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
-
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 998;
+}
 
 .icon {
   width: 24px;
@@ -111,19 +116,25 @@
 }
 
 @media (max-width: 480px) {
-  /* Hide sidebar off-screen */
   .sidebar {
     transform: translateX(-100%);
     z-index: 999;
+    width: 60px; 
+    padding-top: 60px; 
+    overflow-x: hidden;
   }
 
-  /* Navbar adjustments */
-  .navbar-right p {
-    display: none; /* hide "Hi! Admin" */
+  .sidebar.open {
+    transform: translateX(0);
   }
 
+  .sidebar .link-text {
+    display: none;
+  }
+
+  .navbar-right p,
   .logout-btn {
-    display: none; /* optional: hide logout */
+    display: none; 
   }
 
   .hamburger {
@@ -131,6 +142,6 @@
   }
 
   .logo-text {
-    font-size: 18px;
+    display: none;
   }
 }
