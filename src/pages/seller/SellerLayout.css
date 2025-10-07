@@ -132,16 +132,11 @@
     display: none;
   }
 
-  .navbar-right p,
-  .logout-btn {
+  .navbar-right p {
     display: none; 
   }
 
   .hamburger {
     display: block;
-  }
-
-  .logo-text {
-    display: none;
   }
 }
