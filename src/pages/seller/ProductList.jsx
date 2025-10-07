@@ -47,7 +47,7 @@ export const ProductList = () => {
                   <td>
                     <label className="switch">
                       <input
-                        onClick={() =>
+                        onChange={() =>
                           toggleStock(product._id, !product.inStock)
                         }
                         checked={product.inStock}
