@@ -99,3 +99,14 @@
 .add-button:hover {
   background: darkgreen;
 }
+
+@media (max-width:480px) {
+  .add-product-container{
+    left: 60px;
+    padding: 8px;
+  }
+  .add-product-form{
+    width: 200px;
+    gap: 6px;
+  }
+}

@@ -132,3 +132,12 @@
 .switch input:checked + .slider:before {
   transform: translateX(24px);
 }
+
+@media (max-width:480px) {
+  .product-list-container{
+    left: 40px;
+  }
+  .product-list-wrapper{
+    width: 90%;
+  }
+}

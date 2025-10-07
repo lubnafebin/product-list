@@ -75,3 +75,19 @@
   align-items: start;
   gap: 4px;
 }
+
+@media (max-width:480px) {
+  .orders-container{
+    left: 40px;
+    padding: 8px;
+  }
+  .orders-card{
+    grid-template-columns: 1fr;
+    width: 260px;
+    gap: 10px;
+    padding: 5px;
+  }
+  .orders-amount{
+    margin: 0;
+  }
+}
