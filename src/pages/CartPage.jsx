@@ -2,7 +2,6 @@ import "./CartPage.css";
 import toast from "react-hot-toast";
 import { CartItem } from "../components/cart/CartItem";
 import { useAppContext } from "../context/AppContext";
-import { FaCheckCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 export const CartPage = () => {
@@ -24,6 +23,12 @@ export const CartPage = () => {
     try {
       if (!selectedAddress) {
         return toast.error("Please select an address");
+      }
+      const hasOutOfStock = cartItems.some((item) => !item.inStock);
+      if (hasOutOfStock) {
+        return toast.error(
+          "Remove out-of-stock items before placing the order"
+        );
       }
       if (paymentOption === "COD") {
         const { data } = await axios.post("/api/order/cod", {
@@ -63,22 +68,28 @@ export const CartPage = () => {
       toast.error(error.message);
     }
   };
+
   //update cart quantity
   const updateCartQuantity = (id, newQty) => {
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, quantity: newQty } : item
+        item._id === id ? { ...item, quantity: newQty } : item
       )
     );
   };
+
   // Remove item
-  const removeFromCart = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-    toast.success("Removed from Cart", {
-      icon: <FaCheckCircle className="text-green-500" />,
-    });
+  const removeFromCart = async (id) => {
+    try {
+      await axios.delete(`/api/cart/remove/${id}`);
+      setCartItems((prev) => prev.filter((item) => item._id !== id));
+      toast.success("Removed from Cart");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
-  //api integration
+
+  //address api integration
   const getUserAddress = async () => {
     try {
       const { data } = await axios.get("/api/address/get");
@@ -104,7 +115,7 @@ export const CartPage = () => {
   return (
     <div className="cart-page">
       {cartItems?.length === 0 ? (
-        <p>Your Cart is Empty</p>
+        <p className="cart-empty">Your Cart is Empty</p>
       ) : (
         <div className="cart-container">
           {/* Left Side - Cart Items */}
