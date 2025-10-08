@@ -89,14 +89,15 @@ export const AppContextProvider = ({ children }) => {
 
   //get cart total amount
   const getCartAmount = () => {
-  return Math.floor(
-    cartItems.reduce((total, item) => {
-      const product = products.find((p) => p._id === item._id);
-      return product ? total + product.offerPrice * item.quantity : total;
-    }, 0) * 100
-  ) / 100;
-};
-
+    return (
+      Math.floor(
+        cartItems.reduce((total, item) => {
+          const product = products.find((p) => p._id === item._id);
+          return product ? total + product.offerPrice * item.quantity : total;
+        }, 0) * 100
+      ) / 100
+    );
+  };
 
   useEffect(() => {
     fetchUser();
@@ -115,6 +116,7 @@ export const AppContextProvider = ({ children }) => {
       toast.error(error.message);
     }
   };
+  
   useEffect(() => {
     if (user) {
       updateCart();

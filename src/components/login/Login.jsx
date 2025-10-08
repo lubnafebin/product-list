@@ -23,7 +23,7 @@ export const Login = () => {
         setUser(data.user);
         setShowUserLogin(false);
         toast.success(data.message);
-        window.location.reload();
+        // window.location.reload();
       } else {
         toast.error(data.message);
       }

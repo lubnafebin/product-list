@@ -15,13 +15,18 @@ export const CartItem = ({ item, removeFromCart, updateCartQuantity }) => {
           <div className="product-qty">
             <p>Qty:</p>
             <button
-              onClick={() => updateCartQuantity(item._id, item.quantity--)}
+              onClick={() =>
+                updateCartQuantity(
+                  item._id,
+                  item.quantity > 1 ? item.quantity - 1 : 1
+                )
+              }
             >
               -
             </button>
             <span>{item.quantity}</span>
             <button
-              onClick={() => updateCartQuantity(item._id, item.quantity++)}
+              onClick={() => updateCartQuantity(item._id, item.quantity + 1)}
             >
               +
             </button>
