@@ -25,6 +25,7 @@ export const Navbar = () => {
       if (data.success) {
         setUser(null);
         navigate("/");
+        window.location.reload();
       } else {
         toast.error(data.message);
       }
@@ -96,7 +97,7 @@ export const Navbar = () => {
                 <button
                   onClick={() => {
                     logout();
-                    setDropdownOpen(false); 
+                    setDropdownOpen(false);
                   }}
                 >
                   Logout
