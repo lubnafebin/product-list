@@ -61,6 +61,10 @@ export const AppContextProvider = ({ children }) => {
 
   //add to cart
   const addToCart = (product) => {
+    if (!user) {
+      setShowUserLogin(true);
+      return;
+    }
     const existing = cartItems.find((item) => item._id === product._id);
     if (existing) {
       setCartItems(
