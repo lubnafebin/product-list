@@ -11,6 +11,7 @@ export const CartItem = ({ item, removeFromCart, updateCartQuantity }) => {
         <div>
           <p className="product-name">{item.name}</p>
           <p className="product-info">Weight: {item.weight || "N/A"}</p>
+          {!item.inStock && <span className="out-of-stock">Out of Stock</span>}
           <div className="product-qty">
             <p>Qty:</p>
             <button
