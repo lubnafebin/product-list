@@ -89,10 +89,12 @@ export const ProductDetails = () => {
               </button>
               <button
                 onClick={() => {
+                  if (!product.inStock) return;
                   addToCart(product);
                   navigate("/cart");
                 }}
-                className="btn primary"
+                className={`btn primary ${!product.inStock ? "disabled" : ""}`}
+                disabled={!product.inStock}
               >
                 Buy Now
               </button>
