@@ -81,8 +81,6 @@ export const AppContextProvider = ({ children }) => {
       icon: <FaCheckCircle className="text-green-500" />,
     });
   };
-  //clear cart
-  const clearCart = () => setCartItems([]);
 
   //get cart item count
   const getCartCount = () => {
@@ -91,15 +89,14 @@ export const AppContextProvider = ({ children }) => {
 
   //get cart total amount
   const getCartAmount = () => {
-    let totalAmount = 0;
-    for (const items in cartItems) {
-      let itemInfo = products.find((product) => product._id === items);
-      if (cartItems[items] > 0) {
-        totalAmount += itemInfo.offerPrice * cartItems[items];
-      }
-    }
-    return Math.floor(totalAmount * 100) / 100;
-  };
+  return Math.floor(
+    cartItems.reduce((total, item) => {
+      const product = products.find((p) => p._id === item._id);
+      return product ? total + product.offerPrice * item.quantity : total;
+    }, 0) * 100
+  ) / 100;
+};
+
 
   useEffect(() => {
     fetchUser();
@@ -139,7 +136,6 @@ export const AppContextProvider = ({ children }) => {
     selectedCategory,
     setSelectedCategory,
     addToCart,
-    clearCart,
     searchQuery,
     setSearchQuery,
     products,
