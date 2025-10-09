@@ -19,7 +19,7 @@ export const ProductGrid = ({ products }) => {
   }, [products, searchQuery]);
   return (
     <div className="product-grid" id="product-section">
-      {filteredProducts.map((product) => (
+      {filteredProducts?.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
     </div>
