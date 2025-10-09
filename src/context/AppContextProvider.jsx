@@ -14,7 +14,7 @@ export const AppContextProvider = ({ children }) => {
   const [isSeller, setIsSeller] = useState(false);
   const [showUserLogin, setShowUserLogin] = useState(false);
   const [cartCount, setCartCount] = useState(2);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Products");
   const [searchQuery, setSearchQuery] = useState([]);
@@ -60,43 +60,40 @@ export const AppContextProvider = ({ children }) => {
   };
 
   //add to cart
-  const addToCart = (product) => {
+  const addToCart = (itemId) => {
     if (!user) {
       setShowUserLogin(true);
       return;
     }
-    const existing = cartItems.find((item) => item._id === product._id);
-    if (existing) {
-      setCartItems(
-        cartItems.map((item) =>
-          item._id === product._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
+    let cartData = structuredClone(cartItems);
+    if (cartData[itemId]) {
+      cartData[itemId] += 1;
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      cartData[itemId] = 1;
     }
-    toast.success("Added to Cart", {
-      icon: <FaCheckCircle className="text-green-500" />,
-    });
+    setCartItems(cartData);
+    toast.success("Added to cart");
   };
 
   //get cart item count
   const getCartCount = () => {
-    return cartItems.length;
+    let totalCount = 0;
+    for (const item in cartItems) {
+      totalCount += cartItems[item];
+    }
+    return totalCount;
   };
 
   //get cart total amount
   const getCartAmount = () => {
-    return (
-      Math.floor(
-        cartItems.reduce((total, item) => {
-          const product = products.find((p) => p._id === item._id);
-          return product ? total + product.offerPrice * item.quantity : total;
-        }, 0) * 100
-      ) / 100
-    );
+    let totalAmount = 0;
+    for (const items in cartItems) {
+      let itemInfo = products.find((product) => product._id === items);
+      if (cartItems[items] > 0) {
+        totalAmount += itemInfo.offerPrice * cartItems[items];
+      }
+    }
+    return Math.floor(totalAmount * 100) / 100;
   };
 
   useEffect(() => {
@@ -116,7 +113,7 @@ export const AppContextProvider = ({ children }) => {
       toast.error(error.message);
     }
   };
-  
+
   useEffect(() => {
     if (user) {
       updateCart();

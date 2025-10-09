@@ -5,6 +5,7 @@ import { useAppContext } from "../context/AppContext";
 import { useEffect, useState } from "react";
 
 export const CartPage = () => {
+  const [cartArray, setCartArray] = useState([]);
   const [showAddress, setShowAddress] = useState(false);
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
@@ -17,14 +18,25 @@ export const CartPage = () => {
     getCartAmount,
     user,
     axios,
+    products,
   } = useAppContext();
+
+  const getCart = () => {
+    let tempArray = [];
+    for (const key in cartItems) {
+      const product = products.find((item) => item._id === key);
+      product.quantity = cartItems[key];
+      tempArray.push(product);
+    }
+    setCartArray(tempArray);
+  };
 
   const placeOrder = async () => {
     try {
       if (!selectedAddress) {
         return toast.error("Please select an address");
       }
-      const hasOutOfStock = cartItems.some((item) => !item.inStock);
+      const hasOutOfStock = cartArray.some((item) => !item.inStock);
       if (hasOutOfStock) {
         return toast.error(
           "Remove out-of-stock items before placing the order"
@@ -33,7 +45,7 @@ export const CartPage = () => {
       if (paymentOption === "COD") {
         const { data } = await axios.post("/api/order/cod", {
           userId: user._id,
-          items: cartItems.map((item) => ({
+          items: cartArray.map((item) => ({
             product: item._id,
             quantity: item.quantity,
           })),
@@ -51,7 +63,7 @@ export const CartPage = () => {
         //payment using stripe
         const { data } = await axios.post("/api/order/stripe", {
           userId: user._id,
-          items: cartItems.map((item) => ({
+          items: cartArray.map((item) => ({
             product: item._id,
             quantity: item.quantity,
           })),
@@ -70,19 +82,22 @@ export const CartPage = () => {
   };
 
   //update cart quantity
-  const updateCartQuantity = (id, newQty) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item._id === id ? { ...item, quantity: newQty } : item
-      )
-    );
+  const updateCartQuantity = (itemId, quantity) => {
+    let cartData = structuredClone(cartItems);
+    cartData[itemId] = quantity;
+    setCartItems(cartData);
+    toast.success("cart updated");
   };
 
   // Remove item
   const removeFromCart = async (id) => {
     try {
       await axios.delete(`/api/cart/remove/${id}`);
-      setCartItems((prev) => prev.filter((item) => item._id !== id));
+      setCartItems((prev) => {
+        const updatedCart = { ...prev };
+        delete updatedCart[id];
+        return updatedCart;
+      });
       toast.success("Removed from Cart");
     } catch (error) {
       toast.error(error.message);
@@ -107,6 +122,12 @@ export const CartPage = () => {
   };
 
   useEffect(() => {
+    if (products.length > 0 && cartItems) {
+      getCart();
+    }
+  }, [products, cartItems]);
+
+  useEffect(() => {
     if (user) {
       getUserAddress();
     }
@@ -114,7 +135,7 @@ export const CartPage = () => {
 
   return (
     <div className="cart-page">
-      {cartItems?.length === 0 ? (
+      {products?.length === 0 && !cartItems ? (
         <p className="cart-empty">Your Cart is Empty</p>
       ) : (
         <div className="cart-container">
@@ -132,7 +153,7 @@ export const CartPage = () => {
             </div>
 
             {/* Render only cart rows */}
-            {cartItems.map((item) => (
+            {cartArray.map((item) => (
               <CartItem
                 key={item._id}
                 item={item}

@@ -82,7 +82,7 @@ export const ProductDetails = () => {
             {/* Buttons */}
             <div className="actions">
               <button
-                onClick={() => addToCart(product)}
+                onClick={() => addToCart(product._id)}
                 className="btn secondary"
               >
                 Add to Cart
@@ -90,7 +90,7 @@ export const ProductDetails = () => {
               <button
                 onClick={() => {
                   if (!product.inStock) return;
-                  addToCart(product);
+                  addToCart(product._id);
                   navigate("/cart");
                 }}
                 className={`btn primary ${!product.inStock ? "disabled" : ""}`}

@@ -39,7 +39,7 @@ export const ProductCard = ({ product }) => {
           className="add-btn"
           onClick={(e) => {
             e.stopPropagation();
-            addToCart(product);
+            addToCart(product._id);
           }}
         >
           Add to Cart
