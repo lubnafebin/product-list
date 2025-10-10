@@ -32,7 +32,7 @@ export const ProductCard = ({ product }) => {
           )}
         </div>
         <p className="product-price">
-          <span className="old-price">₹{product.price}</span>₹
+          <span className="old-price">${product.price}</span>$
           {product.offerPrice}
         </p>
         <button

@@ -21,7 +21,7 @@ export const ProductDetails = () => {
       <div className="product-details">
         {/* Breadcrumb */}
         <p className="breadcrumb">
-          <Link to={"/"}>Home</Link> / <Link to={"/products"}>Products</Link> /{" "}
+          <Link to={"/"}>Home</Link> / <Link to={"/"}>Products</Link> /{" "}
           <span>{product.category}</span> /{" "}
           <span className="active">{product.name}</span>
         </p>
@@ -67,16 +67,19 @@ export const ProductDetails = () => {
             {/* Price */}
             <div className="price-section">
               <p className="old-price">MRP: ${product.price}</p>
-              <p className="offer-price">MRP: ₹{product.offerPrice}</p>
+              <p className="offer-price">MRP: ${product.offerPrice}</p>
               <span className="tax-note">(inclusive of all taxes)</span>
             </div>
 
             {/* Description */}
             <p className="about">About Product</p>
             <ul className="desc-list">
-              {product.description.map((desc, i) => (
-                <li key={i}>{desc}</li>
-              ))}
+              {product.description[0]
+                .split("\n")
+                .filter((line) => line.trim() !== "")
+                .map((desc, i) => (
+                  <li key={i}>{desc.trim()}</li>
+                ))}
             </ul>
 
             {/* Buttons */}

@@ -3,7 +3,6 @@ import "./MyOrders.css";
 import { useAppContext } from "../context/AppContext";
 
 export const MyOrders = () => {
-
   const [myOrders, setMyOrders] = useState([]);
   const { axios, user } = useAppContext();
 
@@ -34,7 +33,7 @@ export const MyOrders = () => {
             <div className="order-info">
               <span>OrderId: {order._id}</span>
               <span>Payment: {order.paymentType}</span>
-              <span>Total Amount: ₹{order.amount}</span>
+              <span>Total Amount: ${order.amount}</span>
             </div>
 
             {order.items.map((item, idx) => (
@@ -57,7 +56,7 @@ export const MyOrders = () => {
                   </span>
                 </div>
                 <div className="order-amount">
-                  Amount:₹{item.product.offerPrice * item.quantity}
+                  Amount:${item.product.offerPrice * item.quantity}
                 </div>
               </div>
             ))}
