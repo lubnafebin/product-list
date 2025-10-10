@@ -35,10 +35,10 @@ export const SellerLogin = () => {
     !isSeller && (
       <form onSubmit={onSubmitHandler} className="forms-container">
         <div>
-          <p className="form-title">
+          <p className="login-title">
             <span className="highlight">Seller</span> Login
           </p>
-          <div className="form-group">
+          <div className="login-group">
             <p>Email</p>
             <input
               onChange={(e) => setEmail(e.target.value)}
@@ -48,7 +48,7 @@ export const SellerLogin = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="login-group">
             <p>Password</p>
             <input
               onChange={(e) => setPassword(e.target.value)}
