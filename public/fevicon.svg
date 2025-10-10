@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#78c442"/>
+      <stop offset="1" stop-color="#3aa035"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd071"/>
+      <stop offset="1" stop-color="#ffb347"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ff6b6b"/>
+      <stop offset="1" stop-color="#d9534f"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#8bd3ff"/>
+      <stop offset="1" stop-color="#5aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(600,600)">
+    <circle r="420" fill="none" stroke="url(#g1)" stroke-width="22"/>
+  </g>
+
+  <g transform="translate(370,330) scale(0.85)">
+    <g transform="translate(120,120)">
+      <rect x="60" y="120" width="660" height="260" rx="22" fill="none" stroke="url(#g1)" stroke-width="24"/>
+      <circle cx="300" cy="460" r="60" fill="url(#g1)"/>
+      <circle cx="740" cy="460" r="60" fill="url(#g1)"/>
+    </g>
+
+    <g transform="translate(160,40)">
+      <path d="M130 140 c-60 -40 -40 -120 40 -120 c80 0 120 110 30 160 c-50 25 -80 10 -110 -20 z" fill="#5fb46d"/>
+      <circle cx="60" cy="160" r="48" fill="url(#g3)"/>
+      <path d="M0 0 C80 -20 120 -80 110 -140 C100 -190 40 -180 0 -160 C30 -120 30 -80 0 0 z" fill="url(#g2)" transform="translate(420,160) rotate(12)"/>
+    </g>
+  </g>
+
+  <g transform="translate(600,920)">
+    <path d="M-460 0 L-220 -24 L220 -24 L460 0 L220 24 L-220 24 Z" fill="url(#g4)" stroke="#3c8c45" stroke-width="4"/>
+    <text x="0" y="60" text-anchor="middle" font-family="Segoe UI, Arial" font-size="76" font-weight="bold" fill="white">VEGGIECART</text>
+    <text x="0" y="110" text-anchor="middle" font-family="Segoe UI, Arial" font-size="36" fill="#28582a">Fresh • Local • Organic</text>
+  </g>
+</svg>
