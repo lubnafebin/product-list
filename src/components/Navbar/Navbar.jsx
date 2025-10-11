@@ -25,7 +25,7 @@ export const Navbar = () => {
       if (data.success) {
         setUser(null);
         navigate("/");
-        window.location.reload();
+        // window.location.reload();
       } else {
         toast.error(data.message);
       }
